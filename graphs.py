@@ -16,7 +16,7 @@ def p_star(alpha, n):
     # Avoid division by zero for n=1
     if n == 1:
         return np.nan
-    numerator = alpha * (n - 1) * (a + b * c) + 2 * n * b - math.sqrt((alpha**2) * ((n - 1)**2) * ((a - b * c)**2) + 4 * (n * b)**2)
+    numerator = alpha * (n - 1) * (a + b * c) + 2 * n * b - np.sqrt((alpha**2) * ((n - 1)**2) * ((a - b * c)**2) + 4 * (n * b)**2)
     denominator = 2 * alpha * (n - 1) * b
     return numerator / denominator
 

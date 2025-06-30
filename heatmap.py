@@ -14,7 +14,7 @@ n_values = numpy.arange(2, 21)
 ALPHA, N = numpy.meshgrid(alpha_values, n_values)
 
 # Compute p*
-numerator = ALPHA * (N - 1) * (a + b * c) + 2 * N * b - numpy.sqrt((ALPHA**2) * ((N - 1)**2) + 4 * (N * b)**2)
+numerator = ALPHA * (N - 1) * (a + b * c) + 2 * N * b - numpy.sqrt((ALPHA * (N - 1) * (a - b * c))**2 + 4 * (N * b)**2)
 denominator = 2 * ALPHA * (N - 1) * b
 p_star = numerator / denominator
 
