@@ -83,8 +83,8 @@ for idx, alpha in enumerate(alpha_values, 1):
             plt.plot(pconj, 0, 'D', color='cyan', markersize=8, label=f"p^={pconj:.2f}")
 
     plt.title(f"α={alpha}")
-    plt.xlabel("p")
-    plt.ylabel("D(p)")
+    plt.xlabel("Strategy Price p")
+    plt.ylabel("Selection Gradient D(p)")
     plt.ylim(-10, 50)  # Set y-axis scale for all plots
     plt.legend(fontsize=8)  # Make the legends slightly smaller
     plt.grid(True)

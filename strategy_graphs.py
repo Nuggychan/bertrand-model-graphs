@@ -28,7 +28,7 @@ def p_star(alpha, n):
 n_values = np.arange(2, 21)    # e.g. from 2 up to 20 firms
 
 # Different α values to compare
-alpha_values = [1, 2, 3, 5, 10]
+alpha_values = [1, 2, 3, 5, 10, 20, 30]
 
 plt.figure(figsize=(10, 6))
 

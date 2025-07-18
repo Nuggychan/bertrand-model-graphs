@@ -32,31 +32,6 @@ fig.colorbar(im1, ax=axs[0], label='p*')
 axs[0].set_xticks(numpy.arange(1, 11, 1))
 axs[0].set_yticks(numpy.arange(1, 11, 1))
 
-# --- Heatmap 2: alpha 0-100, n 0-20 ---
-alpha_values2 = numpy.linspace(0, 100, 1001)  # Calculate every ~0.1
-n_values2 = numpy.arange(0, 20.01, 0.1)
-ALPHA2, N2 = numpy.meshgrid(alpha_values2, n_values2)
-
-denominator2 = 2 * ALPHA2 * (N2 - 1) * b
-numerator2 = ALPHA2 * (N2 - 1) * (a + b * c) + 2 * N2 * b - numpy.sqrt((ALPHA2 * (N2 - 1) * (a - b * c))**2 + 4 * (N2 * b)**2)
-p_star2 = numpy.where((N2 == 1) | (ALPHA2 == 0), numpy.nan, numerator2 / denominator2)
-
-im2 = axs[1].imshow(
-    p_star2.T,
-    extent=[n_values2.min(), n_values2.max(), alpha_values2.min(), alpha_values2.max()],
-    origin='lower',
-    aspect=0.2,  # 5:1 ratio so the sides have the same length but x/y values are preserved
-    cmap='hot'  # aspect='equal' for square shape
-)
-axs[1].set_title('Heatmap: alpha 0-100, n 0-20')
-axs[1].set_xlabel('n (number of firms)')
-axs[1].set_ylabel('alpha')
-fig.colorbar(im2, ax=axs[1], label='p*')
-
-# Show ticks every 2 for n, every 10 for alpha on the second heatmap
-axs[1].set_xticks(numpy.arange(2, 21, 2))
-axs[1].set_yticks(numpy.arange(0, 101, 10))
-
 # --- Heatmap 3: alpha 0-20, n 1-10 ---
 alpha_values3 = numpy.arange(0, 20.01, 0.1)  # Calculate every 0.1
 n_values3 = numpy.arange(1, 10.01, 0.1)
